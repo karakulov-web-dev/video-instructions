@@ -226,7 +226,6 @@ function fillPage() {
   current.page = 1;
   workWithItems.shift = current.obj;
   current.cat.url = current.feed = categorias[10].url;
-
   getData(
     "http://212.77.128.203:8005/instructions?itemsPerPage=" +
       request.itemsPerRequest.toString() +
@@ -296,8 +295,8 @@ function rebuildCurrentGlobalObj(list) {
 
     current.globalObj = tmp_list;
 
-    request.startIndex = list.data.startIndex; // set current startIndex
-    request.totalItems = list.data.totalItems; // set current totalItems
+    request.startIndex = list.startIndex; // set current startIndex
+    request.totalItems = list.totalItems; // set current totalItems
   });
   Deferred.next(function() {
     workWithItems.drawBoxes();

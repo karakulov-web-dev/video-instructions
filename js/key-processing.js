@@ -171,7 +171,7 @@ function keyProcessing(e) {
           } else {
             if (
               current.globalObj.length >= (current.page + 1) * items.atPage ||
-              request.totalItems == current.globalObj.length - 1
+              request.totalItems == current.globalObj.length
             ) {
               current.page++;
               workWithItems.shift = items.atLine;
@@ -328,24 +328,28 @@ function keyProcessing(e) {
           player.stop();
           byID("shell").style.display = "block";
           break;
-        /*case keys.PAUSE: // play/pause
-                    if(player.condition==0){player.condition=1;} else {player.condition=0;}
-                    player.playOrPause();
-                break;
-                case keys.REW:
-                case keys.LEFT:  // move interval -step
-                    player.rewind(-1);
-                break;
-                case keys.FFWD:
-                case keys.RIGHT: // move interval +step
-                    player.rewind(1);
-                break;
-                case keys.UP:    // interval enlarge
-                    player.changeStep("up");
-                break;
-                case keys.DOWN: // interval reduce
-                    player.changeStep("down");
-                break;*/
+        case keys.PAUSE: // play/pause
+          if (player.condition == 0) {
+            player.condition = 1;
+          } else {
+            player.condition = 0;
+          }
+          player.playOrPause();
+          break;
+        case keys.REW:
+        case keys.LEFT: // move interval -step
+          player.rewind(-1);
+          break;
+        case keys.FFWD:
+        case keys.RIGHT: // move interval +step
+          player.rewind(1);
+          break;
+        case keys.UP: // interval enlarge
+          player.changeStep("up");
+          break;
+        case keys.DOWN: // interval reduce
+          player.changeStep("down");
+          break;
         case keys.CHANNEL_NEXT:
           var id;
           player.stop_pre_play();
@@ -488,18 +492,18 @@ function keyProcessing(e) {
           player.pressNums(num);
           break;
         case keys.OK:
-          //player.pressOK();
+          player.pressOK();
           break;
         case keys.VOL_DOWN:
-          // player.pressVolume(-1);
+          player.pressVolume(-1);
           break;
         case keys.VOL_UP:
-          //player.pressVolume(1);
+          player.pressVolume(1);
           break;
         case keys.MUTE:
-          //player.pressMute();
+          player.pressMute();
           break;
-        //case keys.YELLOW:
+        case keys.YELLOW:
         case keys.FRAME:
           player.displayModeChange();
           break;
