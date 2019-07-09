@@ -112,7 +112,7 @@ function keyProcessing(e) {
           if (current.obj + 1 == current.page * items.atPage) {
             if (
               current.obj + 1 == current.globalObj.length &&
-              !(request.totalItems == current.globalObj.length - 1)
+              !(request.totalItems == current.globalObj.length)
             ) {
               //log("event to upload next");
               current.page++;
@@ -148,6 +148,9 @@ function keyProcessing(e) {
                 );
               }
             } else {
+              if (current.obj == current.globalObj.length - 1) {
+                return;
+              }
               current.page++;
               workWithItems.shift = 1;
               workWithItems.drawBoxes();
@@ -171,13 +174,13 @@ function keyProcessing(e) {
           } else {
             if (
               current.globalObj.length >= (current.page + 1) * items.atPage ||
-              request.totalItems == current.globalObj.length
+              request.totalItems == current.globalObj.length - 1
             ) {
               current.page++;
               workWithItems.shift = items.atLine;
               workWithItems.drawBoxes();
             } else {
-              if (request.totalItems == current.globalObj.length - 1) {
+              if (request.totalItems == current.globalObj.length) {
                 return;
               }
               //log("event to upload next");
