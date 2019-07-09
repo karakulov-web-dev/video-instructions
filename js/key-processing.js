@@ -120,16 +120,16 @@ function keyProcessing(e) {
               loading.show();
               if (folder != 1) {
                 getData(
-                  current.feed +
-                    "&start-index=" +
-                    current.globalObj.length.toString() +
-                    "&max-results=" +
+                  "http://212.77.128.203:8005/instructions?itemsPerPage=" +
                     request.itemsPerRequest.toString() +
-                    "&order-by=" +
-                    current.sortMode +
-                    "&sort-order=" +
-                    current.priority,
-                  "rebuildCurrentGlobalObj"
+                    "&startIndex=" +
+                    (function() {
+                      if (current.globalObj.length) {
+                        return current.globalObj.length.toString();
+                      } else {
+                        return "0";
+                      }
+                    })()
                 );
               }
               if (folder == 1) {
