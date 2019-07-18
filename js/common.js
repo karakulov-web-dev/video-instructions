@@ -227,7 +227,7 @@ function fillPage() {
   workWithItems.shift = current.obj;
   current.cat.url = current.feed = categorias[10].url;
   getData(
-    "http://212.77.128.203:8005/instructions?itemsPerPage=" +
+    "http://212.77.128.203/apps/video-instructions-server-side/index.php?itemsPerPage=" +
       request.itemsPerRequest.toString() +
       "&startIndex=" +
       (function() {
