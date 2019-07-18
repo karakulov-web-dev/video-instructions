@@ -2,7 +2,7 @@ var watchdog = {
   timeout: null,
   ajax_loader: null,
   token: null,
-  cur_play_type: 58 // 2-vclub, 1-tv, 3-karaoke...
+  cur_play_type: 60 // 2-vclub, 1-tv, 3-karaoke...
 };
 watchdog_init();
 //------------------------------------------------------------------------------------------------------
